@@ -55,7 +55,6 @@ def diminish_set(full_data):
     full_data.update(ph)
     return full_data
 
-'''READY FUNCTION''' 
 #selection of 4 different ways to handle the missing values
 def missing_values_handler(method,data):    
     if method=='1':
@@ -88,14 +87,13 @@ def fill_with_mean(data):
     data['pH'].values[np.isnan(data['pH'].values)]= av
     return data
 
-'''TODO'''
+
 def Logistic_regression(data):
     #FILL NAN WITH LOGISTIC REFRESSION   
-
+    '''TODO'''
     return data
 
 #finding the  best number of clusters for the problem
-#TO CHECK IF K=6 DUE TO NUMBER OF CLASSES
 def optimal_number_of_clusters(data):
     #Find the number of clusters
     wcss = []
@@ -157,12 +155,7 @@ def k_means_missing(diminished_set,n_clusters, prev_centroids,prev_labels,col_na
     return new_data
 
 def main():    
-    #QUALITY 3-8 -> 6 clusters?
-    #data.plot.scatter(x='pH',y='quality')  #shows that there are 6 clusters, thus k=6
     data = pd.read_csv('winequality-red.csv')
-   # col_names = ['fixed acidity','volatile acidity','citric acid' ,'residual sugar' , 'chlorides'
-    #             ,'free sulfur dioxide' ,'total sulfur dioxide' 
-     #            ,'density','pH','sulphates' ,'alcohol', 'quality']
     method = input('''What method you want to implement?
                    1st.Delete column
                    2nd.Fill with mean
