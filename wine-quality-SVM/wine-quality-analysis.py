@@ -38,7 +38,6 @@ def count_metrics(data):
     print("Precision Score : ",precision)
     print("Recall Score : ",recall)
     print("f1 Score : ",f1)
-    print(classification_report(y_test,y_pred))
     print(precision_recall_fscore_support(y_test, y_pred,average='weighted'))
     return f1,precision,recall
 
@@ -57,7 +56,9 @@ def diminish_set(full_data):
 
 #selection of 4 different ways to handle the missing values
 def missing_values_handler(method,data):    
-    if method=='1':
+    if method=='0':
+         my_set = data
+    elif method=='1':
         diminished_set = diminish_set(data)
         my_set=delete_column(diminished_set)
     elif method =='2':
@@ -90,8 +91,8 @@ def fill_with_mean(data):
 
 def Logistic_regression(data):
     #FILL NAN WITH LOGISTIC REFRESSION   
-    '''TODO'''
-    return data
+    print("Not implemented")
+    pass
 
 #finding the  best number of clusters for the problem
 def optimal_number_of_clusters(data):
@@ -156,11 +157,12 @@ def k_means_missing(diminished_set,n_clusters, prev_centroids,prev_labels,col_na
 
 def main():    
     data = pd.read_csv('winequality-red.csv')
-    method = input('''What method you want to implement?
-                   1st.Delete column
-                   2nd.Fill with mean
-                   3rd.Logistic Regression
-                   4th.K Means
+    method = input('''What method you want to implement?'
+                   0.Do nothing(use full pH column)
+                   1.Delete column
+                   2.Fill with mean
+                   3.Logistic Regression
+                   4.K Means
                    ''')
     #create new set depending on the method of handling the missing values
     my_set = missing_values_handler(method,data) 
