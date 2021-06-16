@@ -4,9 +4,17 @@ import matplotlib.pyplot as plt
 import nltk
 import numpy as np
 import pandas as pd
+
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras import backend as K
+from tensorflow.keras.layers.core import Dense
+from tensorflow.keras.models import Sequential
+'''
 from keras import backend as K
 from keras.layers.core import Dense
 from keras.models import Sequential
+'''
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
 
